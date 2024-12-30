@@ -70,9 +70,9 @@ export default function Home() {
         
         <button onClick={notify}
           type="submit"  disabled={isSubmitting}
-          className="w-full py-3 flex items-center justify-center bg-blue-600 disabled:bg-gray-400 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-300"
+          className="w-full py-3 flex items-center justify-center bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-300"
         >
-         {isSubmitting ? <LoaderCircle className="text-center" /> : "Sign Up"}
+         {isSubmitting ? <LoaderCircle /> : "Sign Up"}
         </button>
         <ToastContainer />
 
