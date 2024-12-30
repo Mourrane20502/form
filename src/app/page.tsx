@@ -2,30 +2,26 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoaderCircle } from "lucide-react";
-import { FieldValues, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
+import { type SignUpForm, signUpSchema } from "../../lib/types";
 
-import { z } from 'zod';
 
-const signUpSchema = z.object({
-  email : z.string().email(),
-  password : z.string().min(8),
-  confirmPassword : z.string()
-}).refine(data  => data.password === data.confirmPassword , {
-  message : "The passwords do not match",
-  path : ["confirmPassword"]
-})
+
+
+
 
 export default function Home() {
 
   const notify = () => toast.success("Form submitted successfully!");
 
 
-  const { register, handleSubmit , formState:{errors,isSubmitting}  , reset  } = useForm({
+  const { register, handleSubmit , formState:{errors,isSubmitting}  , reset  } = useForm<SignUpForm>({
      resolver :zodResolver(signUpSchema)
   });
+
   
-    const handleForm = async (data: FieldValues) => {
+    const handleForm = async (data: SignUpForm) => {
      console.log(data);
       await new Promise((resolve) => setTimeout(resolve, 1000));
       reset();
