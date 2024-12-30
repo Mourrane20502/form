@@ -70,7 +70,7 @@ export default function Home() {
         
         <button onClick={notify}
           type="submit"  disabled={isSubmitting}
-          className="w-full py-3 flex items-center justify-center bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-300"
+          className="w-full py-3 flex items-center justify-center disabled:bg-red-600 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-300"
         >
          {isSubmitting ? <LoaderCircle /> : "Sign Up"}
         </button>
